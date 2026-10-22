@@ -9,7 +9,7 @@ log_file = (
 
 with Evtx(log_file) as log:
     for number, record in enumerate(log.records()):
-        if number >= 5:
+        if number >= 20:
             break
 
         root = ET.fromstring(record.xml())
