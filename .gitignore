@@ -1,0 +1,25 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Environment and secret files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Operating system files
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.log
+~$*
+
+# Raw datasets
+data/raw/
