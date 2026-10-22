@@ -1,0 +1,20 @@
+title: Suspicious Mshta Execution with Remote URL
+id: 8b97a0f2-7c6d-4b21-a5e8-2f94c6d19a31
+status: experimental
+description: Detects mshta.exe process command lines containing an HTTP or HTTPS URL.
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_image:
+        Image|endswith: '\mshta.exe'
+    selection_url:
+        CommandLine|contains:
+            - 'http://'
+            - 'https://'
+    condition: selection_image and selection_url
+falsepositives:
+    - Legitimate administrative or application activity using mshta.exe with a remote URL
+level: medium
+tags:
+    - attack.t1218.005
